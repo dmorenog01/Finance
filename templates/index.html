@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<h1>Home</h1>
+<table class="table">
+    <tr>
+        <th>Symbol</th>
+        <th>Amount</th>
+        <th>Current Price</th>
+        <th>Holdings</th>
+    </tr>
+    {% for stock in information %}
+    <tr>
+        <td> {{ stock.symbol }} </td>
+        <td> {{ stock.amount }} </td>
+        <td> {{ stock.current_price_usd }} </td>
+        <td> {{ stock.holdings_usd }} </td>
+    </tr>
+    {% endfor %}
+</table>
+<table class="table">
+    <tr>
+        <th>Cash Balance</th>
+        <th>Grand Total</th>
+    </tr>
+    <tr>
+        <td> {{ user_info.cash_balance_usd }} </td>
+        <td> {{ user_info.grand_total_usd }} </td>
+    </tr>
+</table>
+{% endblock %}

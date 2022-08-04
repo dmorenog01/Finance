@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %} History {% endblock %}
+
+{% block main %}
+<div class="table-responsive-md">
+    <table class="table">
+        <tr>
+            <th>Transaction</th>
+            <th>Symbol</th>
+            <th>Transaction Price</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for tr in transactions %}
+        {% if tr.type == "Sell" %}
+        <tr class="table-danger">
+            <td> {{ tr.type }} </td>
+            <td> {{ tr.symbol }} </td>
+            <td> {{ tr.price }} </td>
+            <td> {{ tr.amount }} </td>
+            <td> {{ tr.date }} </td>
+            <td> {{ tr.time }} </td>
+        </tr>
+        {% else %}
+        <tr class="table-success">
+            <td> {{ tr.type }} </td>
+            <td> {{ tr.symbol }} </td>
+            <td> {{ tr.price }} </td>
+            <td> {{ tr.amount }} </td>
+            <td> {{ tr.date }} </td>
+            <td> {{ tr.time }} </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
